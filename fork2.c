@@ -1,11 +1,11 @@
 #include <stdio.h>
+#include <unistd.h>
+#include <sys/types.h>
 
 int main(){
-	printf("L0");
+	printf("L0\n");
 	fork();
-	printf("L1");
+	printf("L1\n");
 	fork();
-	printf("Bye");
-	
-	return 0;
+	printf("Bye\n");
 }

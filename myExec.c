@@ -1,10 +1,11 @@
 #include <stdio.h>
+#include <sys/wait.h>
+#include <sys/types.h>
 #include <unistd.h>
-#include <stdlib.h>
 
 int main(){
-	putenv("MY_V=-l");
-	char* option = getenv("MY_V");
-	execlp("ls","fuckthat",option,NULL);
-	return 1;
+	if(fork()==0)
+		execl("/bin/cp","cp","foo","bar",NULL);
+	wait(NULL);
+	printf("copy completed\n");
 }

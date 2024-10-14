@@ -8,10 +8,8 @@ int main(){
 		printf("L1\n");
 		if(fork()!=0){
 			printf("L2\n");
-			if(fork()!=0){
-			printf("L3\n");
-			}
+			fork();
 		}
 	}
-	printf("Bye from pid %d\n",getpid());
+	printf("bye\n");
 }

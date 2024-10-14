@@ -1,18 +1,17 @@
 #include <stdio.h>
-#include <sys/types.h>
-#include <unistd.h>
 #include <stdlib.h>
+#include <unistd.h>
+#include <sys/types.h>
 
-int main() {
-    pid_t pid;
-    
-    pid = fork();
-    
-    if (pid == 0) {
-        printf("Running child %d\n", getpid());
-        while(1);
-    } else {
-        printf("Terminating parent %d\n", getpid());
-        exit(0);
-    }
+int main(){
+	pid_t pid;
+	pid=fork();
+	
+	if(pid==0){
+		printf("Child %d terminated\n",getpid());
+		exit(0);
+	}else{
+		printf("Parent %d in loop\n",getpid());
+		//while(1);
+	}
 }
